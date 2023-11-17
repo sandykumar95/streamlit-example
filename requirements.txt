@@ -6,3 +6,5 @@ numpy
 seaborn
 pandas
 matplotlib
+cython
+openpyxl
