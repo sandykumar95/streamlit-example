@@ -55,31 +55,76 @@ print(data_dict)
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-key_main = "artistic_approach"
-key_columns = data_dict[key_main]
+# key_main = "artistic_approach"
+# key_columns = data_dict[key_main]
 
-# Calculate the count of 1s in each column
-count_of_ones = df5[key_columns].sum()
+# # Calculate the count of 1s in each column
+# count_of_ones = df5[key_columns].sum()
 
-# Sort the columns by descending order of the count of 1s
-sorted_columns = count_of_ones.sort_values(ascending=False).index
+# # Sort the columns by descending order of the count of 1s
+# sorted_columns = count_of_ones.sort_values(ascending=False).index
 
-# Remove "approach_" from the x-axis parameter labels
-cleaned_labels = [label.replace("approach_", "") for label in sorted_columns]
+# # Remove "approach_" from the x-axis parameter labels
+# cleaned_labels = [label.replace("approach_", "") for label in sorted_columns]
 
-# Create a horizontal bar plot with fading colors
-plt.figure(figsize=(13, 6))
-palette = sns.color_palette("Blues_r", len(cleaned_labels))  # Fading colors from high to low
-ax = sns.barplot(x=count_of_ones[sorted_columns], y=cleaned_labels, orient="h", palette=palette)
+# # Create a horizontal bar plot with fading colors
+# plt.figure(figsize=(13, 6))
+# palette = sns.color_palette("Blues_r", len(cleaned_labels))  # Fading colors from high to low
+# ax = sns.barplot(x=count_of_ones[sorted_columns], y=cleaned_labels, orient="h", palette=palette)
 
-# Annotate the count of each category inside the bar
-for i, v in enumerate(count_of_ones[sorted_columns]):
-    ax.text(v + 5, i, str(v), va='center', fontsize=12)  # Adjust the position for better readability
+# # Annotate the count of each category inside the bar
+# for i, v in enumerate(count_of_ones[sorted_columns]):
+#     ax.text(v + 5, i, str(v), va='center', fontsize=12)  # Adjust the position for better readability
 
-plt.title('Artistic Approach')  # Updated title
-plt.xlabel('Number of Artists →')
-plt.ylabel('Approach →')
-plt.show()
+# plt.title('Artistic Approach')  # Updated title
+# plt.xlabel('Number of Artists →')
+# plt.ylabel('Approach →')
+# plt.show()
+
+
+
+import streamlit as st
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Your existing code for data preparation and plotting
+def create_plot(data_dict,df5):
+    key_main = "artistic_approach"
+    key_columns = data_dict[key_main]
+
+    # Calculate the count of 1s in each column
+    count_of_ones = df5[key_columns].sum()
+
+    # Sort the columns by descending order of the count of 1s
+    sorted_columns = count_of_ones.sort_values(ascending=False).index
+
+    # Remove "approach_" from the x-axis parameter labels
+    cleaned_labels = [label.replace("approach_", "") for label in sorted_columns]
+
+    # Create a horizontal bar plot with fading colors
+    plt.figure(figsize=(13, 6))
+    palette = sns.color_palette("Blues_r", len(cleaned_labels))  # Fading colors from high to low
+    ax = sns.barplot(x=count_of_ones[sorted_columns], y=cleaned_labels, orient="h", palette=palette)
+
+    # Annotate the count of each category inside the bar
+    for i, v in enumerate(count_of_ones[sorted_columns]):
+        ax.text(v + 5, i, str(v), va='center', fontsize=12)  # Adjust the position for better readability
+
+    plt.title('Artistic Approach')
+    plt.xlabel('Number of Artists →')
+    plt.ylabel('Approach →')
+    return plt
+
+# Streamlit app
+st.title("Artistic Approach Visualization")
+
+# Create the plot
+fig = create_plot(data_dict,df5)
+
+# Display the plot
+st.pyplot(fig)
+
 # st.pyplot(fig)
 #         st.write("### The above Bar chart represents, Team wise analysis on Total Matches Played, Total Matches Won and Win percentage in IPL since 2008")
 
