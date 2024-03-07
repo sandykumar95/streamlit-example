@@ -7,6 +7,7 @@ import seaborn as sns
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+import streamlit.components.v1 as components
 import random
 import math
 
@@ -42,6 +43,16 @@ st.write("***College and Department info:*** ***Indiana Univerity Bloomington***
 
 st.write("***Student Status:*** Graduate")
 st.write("***Title:*** Creatives Rebuild New York (CRNY) Data Visualization ")
+
+
+# Your iframe embed code here (make sure to use the correct src URL)
+iframe_embed_code = """
+<iframe src="https://public.flourish.studio/visualisation/17042593/embed" frameborder="0" scrolling="no" style="width:100%; height:600px;"></iframe>
+"""
+
+# Embed the iframe in your Streamlit app
+components.html(iframe_embed_code, height=600)
+
 
 
 # Read the CSV file into a DataFrame named "df5"
