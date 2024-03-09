@@ -19,24 +19,6 @@ import streamlit.components.v1 as components
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
-hide_streamlit_style = """
-            <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            
-            footer:before {
-         	content:'⭐️ Thankyou for visiting this site ❤️'; 
-         	visibility: visible;
-         	display: block;
-         	position: relative;
-         	#background-color: red;
-         	padding: 5px;
-            color: black;
-         	top: 2px;}
-            </style>
-            """
-st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
-
 import plotly.io as pio
 pio.templates.default = "plotly"
 
