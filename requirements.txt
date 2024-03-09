@@ -1,0 +1,15 @@
+﻿##Project import dependencies
+requests
+streamlit
+plotly
+pandas
+seaborn
+matplotlib
+numpy
+geopy
+pydeck
+Pillow  # For PIL, the package name is Pillow
+graphviz
+altair
+streamlit_agraph
+matplotlib_venn
