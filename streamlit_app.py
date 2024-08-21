@@ -17,7 +17,7 @@ import plotly.graph_objects as go
 import streamlit.components.v1 as components
 #from chapter2 import chapter2
 
-st.set_option('deprecation.showPyplotGlobalUse', False)
+#st.set_option('deprecation.showPyplotGlobalUse', False)
 
 import plotly.io as pio
 pio.templates.default = "plotly"
