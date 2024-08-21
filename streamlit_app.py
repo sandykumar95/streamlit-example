@@ -22,7 +22,7 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 import plotly.io as pio
 pio.templates.default = "plotly"
 
-st.set_page_config(page_title="CRNY Data Visualization", layout="wide")#"""page_icon=":1234:""""
+st.set_page_config(page_title="CRNY Data Visualization", layout="wide")
 
 # Custom CSS for horizontal radio buttons
 horizontal_radio_css = """
